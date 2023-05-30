@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ServiceCallout continueOnError="false" enabled="true" name="Your-Display-Name">
+  <DisplayName>Your-Display-Name</DisplayName>
+  <Properties/>
+  <Request clearPayload="true" variable="myRequest">
+    <Set>
+      <Headers>
+        <Header name="Accept">application/json</Header>
+      </Headers>
+      <Verb>POST</Verb>
+      <Payload contentType="application/json">
+      <!-- Apigee Flow variables name. Please refer this documentation https://cloud.google.com/apigee/docs/api-platform/reference/variables-reference -->
+      {
+        "api_proxy_revision": "{apiproxy.revision}",
+        "client_received_start_timestamp": "{client.received.start.timestamp}",
+        "client_sent_end_timestamp": "{client.sent.end.timestamp}",
+        "environment_name": "{environment.name}",
+        "error_content": "{error.content}",
+        "error_message": "{error.message}",
+        "error_reason_phrase": "{error.reason.phrase}",
+        "error_state": "{error.state}",
+        "error_status_code": "{error.status.code}",
+        "error_transport_message": "{error.transport.message}",
+        "flow_name": "{current.flow.name}",
+        "http_method": "{request.verb}",
+        "http_version": "{message.version}",
+        "orgname": "{organization.name}",
+        "protocol": "{request.header.X-Forwarded-Proto}",
+        "proxy_base_path": "{proxy.basepath}",
+        "proxy_client_ip": "{proxy.client.ip}",
+        "proxy_name": "{apiproxy.name}",
+        "proxy_pathsuffix": "{proxy.pathsuffix}",
+        "proxy_url": "{proxy.url}",
+        "query_param": "{request.queryparams.names}",
+        "query_param_count": "{request.queryparams.count}",
+        "request_content": "{request.content}",
+        "request_formparams_count": "{request.formparams.count}",
+        "request_formstring": "{request.formstring}",
+        "request_host": "{request.header.Host}",
+        "request_headers_count": "{request.headers.count}",
+        "request_headers_names": "{request.headers.names}",
+        "request_header_content_length": "{request.header.Content-Length.values.string}",
+        "request_header_content": "{request.header.Content-Type.values.string}",
+        "request_header_accept": "{request.header.accept.values.string}",
+        "request_header_accept_encoding": "{request.header.accept-encoding.values.string}",
+        "request_path": "{request.path}",
+        "request_querystring": "{request.querystring}",
+        "request_uid": "{messageid}",
+        "request_uri": "{request.uri}",
+        "response_content": "{request.content}",
+        "response_header_access_control_allow_cred": "{response.header.Access-Control-Allow-Credentials.values.string}",
+        "response_header_access_control_allow_origin": "{response.header.Access-Control-Allow-Origin.values.string}",
+        "response_header_content_length": "{response.header.Content-Length.values.string}",
+        "response_header_content_type": "{response.header.Content-Type.values.string}",
+        "response_header_connection": "{response.header.Connection.values.string}",
+        "response_headers_count": "{response.headers.count}",
+        "response_headers_names": "{response.headers.names}",
+        "response_reason_phrase": "{response.reason.phrase}",
+        "ssl_enabled": "{client.ssl.enabled}",
+        "status_code": "{message.status.code}",
+        "target_basepath": "{target.basepath}",
+        "target_host": "{target.host}",
+        "target_ip": "{target.ip}",
+        "target_locality": "{target.locality}",
+        "target_port": "{target.port}",
+        "target_received_end_time": "{target.received.end.time}",
+        "target_received_start_time": "{target.received.start.time}",
+        "target_sent_end_time": "{target.sent.end.time}",
+        "target_sent_start_time": "{target.sent.start.time}",
+        "target_url": "{target.url}",
+        "target_endpoint_name": "{route.target}",
+        "uri_port": "{virtualhost.port}",
+        "user_agent": "{request.header.User-Agent.values}"
+      }
+      </Payload>
+    </Set>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+  </Request>
+  <Response>calloutResponse</Response>
+  <HTTPTargetConnection>
+    <Properties/>
+    <URL>https://some-api-url-where-you-want-to-send-payload </URL>
+  </HTTPTargetConnection>
+</ServiceCallout>
