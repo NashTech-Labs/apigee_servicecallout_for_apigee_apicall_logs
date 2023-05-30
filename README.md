@@ -46,3 +46,9 @@ For advanced features, such as payload transformation, conditional execution, ti
 
 ## Conclusion
 The Apigee Service Callout policy empowers API proxies to interact with external services efficiently. By leveraging its capabilities, you can seamlessly integrate with external systems and enhance the functionality of your APIs.
+
+### Reference Links
+
+<b>ServiceCallout: https://cloud.google.com/apigee/docs/api-platform/reference/policies/service-callout-policy <br>
+<b>Flow Variables: https://cloud.google.com/apigee/docs/api-platform/reference/variables-reference 
+
